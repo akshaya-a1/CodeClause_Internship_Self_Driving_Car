@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Self-Driving Car Simulation</title>
+    <style>
+        #road {
+            width: 100%;
+            height: 300px;
+            background-color: #666;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #car {
+            width: 150px;
+            height: 100px;
+            background-image: url('https://th.bing.com/th/id/OIP.1yVKLXDgWJ8u8evK1FYOIQEzDL?w=650&h=430&rs=1&pid=ImgDetMain'); /* Replace with your car image URL */
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+
+<div id="road">
+    <div id="car"></div>
+</div>
+
+<script>
+    // JavaScript to simulate car movement
+    const car = document.getElementById('car');
+    let position = 0;
+    let direction = 1;
+
+    function moveCar() {
+        if (position > window.innerWidth - 100 || position < 0) {
+            direction *= -1;
+        }
+        position += 5 * direction;
+        car.style.left = position + 'px';
+    }
+
+    setInterval(moveCar, 50);
+</script>
+
+</body>
+</html>
